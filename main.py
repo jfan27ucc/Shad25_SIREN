@@ -1,6 +1,15 @@
 size = 9
 grid = [
-    ['*'] *size for i in range(size)
+    #['*'] *size for i in range(size)
+    ['*','*','*','*','*','*','*','*','*'],
+    ['*','*','*','*','*','*','*','*','*'],
+    ['#','#','#','#','#','*','*','*','*'],
+    ['*','*','*','*','*','*','*','*','*'],
+    ['*','*','*','*','*','*','*','*','*'],
+    ['*','*','*','*','#','#','#','#','#'],
+    ['*','*','*','*','*','*','*','*','*'],
+    ['*','*','*','*','*','*','*','*','*'],
+    ['*','*','*','*','*','*','*','*','*']
 ]
 
 print('Enter coordinates space separated.')
@@ -24,6 +33,8 @@ while len(queue) > 0:
     #print([y,x],b)
     if x<0 or y<0 or x>size-1 or y>size-1:
         pass
+    elif grid[y][x] == '#':
+        pass
     elif visited[y][x]:
         pass
     elif [y,x] == b:
@@ -45,19 +56,20 @@ grid[b[0]][b[1]] = 'G'
 
 for i in range(size):
     for j in range(size):
-        if i!=0 and grid[i-1][j] == 'G' and grid[i][j] != 'G':
+        if i!=0 and grid[i-1][j] == 'G' and grid[i][j] == '*':
             grid[i][j] = 'R'
-        elif j!=0 and grid[i][j-1] == 'G' and grid[i][j] != 'G':
+        elif j!=0 and grid[i][j-1] == 'G' and grid[i][j] == '*':
             grid[i][j] = 'R'
-        elif i != size-1 and grid[i+1][j] == 'G' and grid[i][j] != 'G':
+        elif i != size-1 and grid[i+1][j] == 'G' and grid[i][j] == '*':
             grid[i][j] = 'R'
-        elif j != size-1 and grid[i][j+1] == 'G' and grid[i][j] != 'G':
+        elif j != size-1 and grid[i][j+1] == 'G' and grid[i][j] == '*':
             grid[i][j] = 'R'
 grid[b[0]][b[1]] = 'D'
 
 print('"G": green parallel, red perpendicular')
 print('"R": red both ways')
 print('"*": unchanged')
+print('"#": no road')
 print('  '+' '.join(list(map(str,range(1,size+1)))))
 for i in range(size):
     print(f'{i+1} '+' '.join(grid[i]))
