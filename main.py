@@ -3,6 +3,7 @@ grid = [
     ['*'] *size for i in range(size)
 ]
 
+print('Enter coordinates space separated.')
 a = list(map(int,input('Start cords: ').split()))
 b = list(map(int,input('End cords: ').split()))
 
