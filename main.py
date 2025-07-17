@@ -55,9 +55,9 @@ for i in range(size):
             grid[i][j] = 'R'
 grid[b[0]][b[1]] = 'D'
 
-print('G: green parallel, red perpendicular')
-print('R: red both ways')
-print('*: unchanged')
+print('"G": green parallel, red perpendicular')
+print('"R": red both ways')
+print('"*": unchanged')
 print('  '+' '.join(list(map(str,range(1,size+1)))))
 for i in range(size):
     print(f'{i+1} '+' '.join(grid[i]))
