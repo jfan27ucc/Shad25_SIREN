@@ -56,7 +56,9 @@ grid[b[0]][b[1]] = 'G'
 
 for i in range(size):
     for j in range(size):
-        if i!=0 and grid[i-1][j] == 'G' and grid[i][j] == '*':
+        if grid[i][j] == '#':
+            grid[i][j] = ' '
+        elif i!=0 and grid[i-1][j] == 'G' and grid[i][j] == '*':
             grid[i][j] = 'R'
         elif j!=0 and grid[i][j-1] == 'G' and grid[i][j] == '*':
             grid[i][j] = 'R'
